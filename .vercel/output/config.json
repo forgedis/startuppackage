@@ -1,0 +1,69 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "/about",
+			"dest": "/about/"
+		},
+		{
+			"src": "/about/",
+			"status": 308,
+			"headers": {
+				"Location": "/about"
+			}
+		},
+		{
+			"src": "/privacy-policy",
+			"dest": "/privacy-policy/"
+		},
+		{
+			"src": "/privacy-policy/",
+			"status": 308,
+			"headers": {
+				"Location": "/privacy-policy"
+			}
+		},
+		{
+			"src": "/sverdle/how-to-play",
+			"dest": "/sverdle/how-to-play/"
+		},
+		{
+			"src": "/sverdle/how-to-play/",
+			"status": 308,
+			"headers": {
+				"Location": "/sverdle/how-to-play"
+			}
+		},
+		{
+			"src": "/_app/immutable/.+",
+			"headers": {
+				"cache-control": "public, immutable, max-age=31536000"
+			}
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/sverdle/?(?:/__data.json)?$",
+			"dest": "/sverdle"
+		},
+		{
+			"src": "/.*",
+			"dest": "/![-]/catchall"
+		}
+	],
+	"overrides": {
+		"index.html": {
+			"path": ""
+		},
+		"about.html": {
+			"path": "about"
+		},
+		"privacy-policy.html": {
+			"path": "privacy-policy"
+		},
+		"sverdle/how-to-play.html": {
+			"path": "sverdle/how-to-play"
+		}
+	}
+}
